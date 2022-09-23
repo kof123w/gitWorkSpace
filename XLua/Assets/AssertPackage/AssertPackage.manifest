@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 605051344
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: perfabs/cube.perfab
+      Dependencies: {}
