@@ -10,6 +10,17 @@ public class LuaManager : UnitySingleton<LuaManager>
 {
     private LuaEnv env ; 
     private static string luaScriptFolder = "LuaScripts";
+
+    private bool isInitFinish = false;
+
+    /// <summary>
+    /// 外界获取环境
+    /// </summary>
+    /// <returns></returns>
+    public LuaEnv GetLuaEnv() { 
+       return env;
+    }
+
     public override void Awake() { 
         base.Awake();
 
@@ -44,7 +55,7 @@ public class LuaManager : UnitySingleton<LuaManager>
     /// </summary>
     private void initLuaEnv() {
         env = new LuaEnv();
-        env.AddLoader(LuaScriptLoader); 
+        env.AddLoader(LuaScriptLoader);
     }
 
     /// <summary>
@@ -53,12 +64,17 @@ public class LuaManager : UnitySingleton<LuaManager>
     public void runLuaScript() { 
         //Debug.Log("运行lua代码");
         this.env.DoString("require('Main')");
-        this.env.DoString("require('main.awake()')");
+        this.env.DoString("main.awake()");
+        isInitFinish = true; 
     }
 
     public void Update()
     {
+        if (isInitFinish == false)
+        {
+            return;
+        }
         //Debug.Log("运行lua代码"); 
-        this.env.DoString("require('main.update()')");
+        this.env.DoString("main.update()");
     }
 }

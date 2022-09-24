@@ -1,11 +1,14 @@
 
 main = {}
-main.awake = function(){
+
+main.awake = function()
     print("this mian awake function");
-}
+end
 
 
 main.update = function()
-   print("update")
-end
+   print("this mian update  function")
+end 
+
+require("Game/HotFixTest")
 

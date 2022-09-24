@@ -10,7 +10,7 @@ public class GameStarter : UnitySingleton<GameStarter>
 
         //初始化游戏框架
         this.gameObject.AddComponent<LuaManager>();
-
+        this.gameObject.AddComponent<CSharpManager>();
         //资源管理于初始化 
     }
 
