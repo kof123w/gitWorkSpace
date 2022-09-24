@@ -4,6 +4,10 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.Networking;
 
+
+/// <summary>
+/// 主要是展示以下AB包读取方式
+/// </summary>
 public class LoadAssertBundle : MonoBehaviour
 {
 
@@ -15,7 +19,7 @@ public class LoadAssertBundle : MonoBehaviour
     {
         //LoadAssert();
         //StartCoroutine(this.LoadAssertAsync());
-        StartCoroutine(this.WWWLoadAssertBundle());
+        //StartCoroutine(this.WWWLoadAssertBundle());
     }
 
     /// <summary>
@@ -45,7 +49,7 @@ public class LoadAssertBundle : MonoBehaviour
     /// <summary>
     /// 使用www进行加载。当然www也可以通过请求服务器下载ab包再加载
     /// </summary>
-    IEnumerator WWWLoadAssertBundle() {
+    /*IEnumerator WWWLoadAssertBundle() {
         while (!Caching.ready) {
            yield return null;
         }
@@ -64,7 +68,7 @@ public class LoadAssertBundle : MonoBehaviour
         GameObject go = Instantiate(perfab);
         go.name = "我是通过www请求加载出来的";
     }
-
+*/
 
     /// <summary>
     /// 最后是unity官方推荐使用的远程请求下载并且加载Assert包的方法

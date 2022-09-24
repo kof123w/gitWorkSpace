@@ -1,14 +1,30 @@
 
-main = {}
+require("InitScript")
 
-main.awake = function()
-    print("this mian awake function");
+main = {  
+  
+}
+
+ --收集其他类的update函数，并且进行每帧调用
+local updateTable = {}
+
+main.awake = function ()
+   --todo
 end
 
+main.start = function()
+   --todo
+end
 
 main.update = function()
-   print("this mian update  function")
-end 
+     for k,v in pairs(updateTable) do
+         local tmpFunction = v;
+         tmpFunction();
+    end
+end
 
-require("Game/HotFixTest")
+return updateTable;
+
+
+
 

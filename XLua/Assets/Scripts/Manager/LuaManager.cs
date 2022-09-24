@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using XLua;
+using UnityEngine.UI;
 
 public class LuaManager : UnitySingleton<LuaManager>
 {
@@ -12,12 +13,13 @@ public class LuaManager : UnitySingleton<LuaManager>
     private static string luaScriptFolder = "LuaScripts";
 
     private bool isInitFinish = false;
-
+    
     /// <summary>
     /// 外界获取环境
     /// </summary>
     /// <returns></returns>
-    public LuaEnv GetLuaEnv() { 
+    public LuaEnv GetLuaEnv() {
+        
        return env;
     }
 
@@ -47,9 +49,9 @@ public class LuaManager : UnitySingleton<LuaManager>
         return data;
 #endif 
          //如果不是编辑器模式下的lua代码 
-        return null;
+       // return null;
     }
-
+    
     /// <summary>
     /// 初始化lua环境
     /// </summary>
@@ -57,7 +59,7 @@ public class LuaManager : UnitySingleton<LuaManager>
         env = new LuaEnv();
         env.AddLoader(LuaScriptLoader);
     }
-
+    
     /// <summary>
     /// 进入游戏逻辑
     /// </summary>
@@ -68,6 +70,22 @@ public class LuaManager : UnitySingleton<LuaManager>
         isInitFinish = true; 
     }
 
+    /// <summary>
+    /// start函数
+    /// </summary>
+    public void Start()
+    {
+        if (isInitFinish == false)
+        {
+            return;
+        }
+        //Debug.Log("运行lua代码"); 
+        this.env.DoString("main.start()");
+    }
+
+    /// <summary>
+    /// update函数
+    /// </summary>
     public void Update()
     {
         if (isInitFinish == false)

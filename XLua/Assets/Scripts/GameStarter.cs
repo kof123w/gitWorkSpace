@@ -6,12 +6,11 @@ public class GameStarter : UnitySingleton<GameStarter>
 {
     public override void Awake()
     {
-        base.Awake();
-
+        base.Awake(); 
         //初始化游戏框架
-        this.gameObject.AddComponent<LuaManager>();
-        this.gameObject.AddComponent<CSharpManager>();
+        this.gameObject.AddComponent<LuaManager>(); 
         //资源管理于初始化 
+         
     }
 
     private void Start()
