@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 605051344
+CRC: 3465534089
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: perfabs/cube.perfab
+      Name: texture/minmap.tex
       Dependencies: {}

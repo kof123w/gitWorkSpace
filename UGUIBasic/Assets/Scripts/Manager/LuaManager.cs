@@ -39,7 +39,7 @@ public class LuaManager : UnitySingleton<LuaManager>
         string scriptPath = string.Empty;
         scriptPath = filepath.Replace(".", "/") + ".lua";
         //编辑模型下运行一下
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         string[] pathCombineParam = {
             Application.dataPath,
             luaScriptFolder,
@@ -49,9 +49,19 @@ public class LuaManager : UnitySingleton<LuaManager>
         byte[] data = File.ReadAllBytes(scriptPath);
         
         return data;
-#endif 
+//#endif 
          //如果不是编辑器模式下的lua代码 
-       // return null;
+        //return null;
+
+       /* string[] pathCombineParam1 = {
+            Application.dataPath,
+            luaScriptFolder,
+            scriptPath
+        };
+        scriptPath = Path.Combine(pathCombineParam1);
+        byte[] data1 = File.ReadAllBytes(scriptPath);
+
+        return data1;*/
     }
     
     /// <summary>
@@ -70,8 +80,7 @@ public class LuaManager : UnitySingleton<LuaManager>
         this.env.DoString("require('Main')");
         this.env.DoString("main.awake()");
         isInitFinish = true; 
-    }
-
+    } 
     /// <summary>
     /// start函数
     /// </summary>
@@ -82,7 +91,8 @@ public class LuaManager : UnitySingleton<LuaManager>
             return;
         }
         //Debug.Log("运行lua代码"); 
-        this.env.DoString("main.start()"); 
+        this.env.DoString("main.start()");
+        
     }
 
     /// <summary>
@@ -95,6 +105,6 @@ public class LuaManager : UnitySingleton<LuaManager>
             return;
         }
         //Debug.Log("运行lua代码"); 
-        this.env.DoString("main.update()");
+        this.env.DoString("main.update()"); 
     }
 }

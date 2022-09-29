@@ -17,7 +17,7 @@ public class GameStarter : UnitySingleton<GameStarter>
         this.gameObject.AddComponent<LuaManager>();
 
         //资源管理于初始化 
-
+        this.gameObject.AddComponent<TexManger>(); 
     }
 
     private void Start()
